@@ -34,7 +34,7 @@ public class CompanyContentDto {
 	@Column(nullable = false, name = "experience", length = 256)
 	private String experience;//工作经验
 	
-	@Column(nullable = false, name = "company_name")
+	@Column(nullable = false, name = "time")
 	private Date time;//发布时间
 	
 	public String getId() {

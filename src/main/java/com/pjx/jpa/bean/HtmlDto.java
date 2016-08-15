@@ -20,10 +20,10 @@ public class HtmlDto {
 	@Column(nullable = false, name = "title", length = 256)
 	private String title;
 
-	@Column(nullable = false, name = "type", length = 256)
+	@Column(nullable = true, name = "type", length = 256)
 	private String type;
 	
-	@Column(nullable = false, name = "main_url", length = 256)
+	@Column(nullable = true, name = "main_url", length = 256)
 	private String mainUrl;
 	
 	public String getMainUrl() {

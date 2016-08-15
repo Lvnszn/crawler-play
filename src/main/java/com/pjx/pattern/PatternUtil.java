@@ -1,15 +1,16 @@
 package com.pjx.pattern;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import com.pjx.jpa.bean.HtmlDto;
+
 
 public class PatternUtil {
 
@@ -31,26 +32,16 @@ public class PatternUtil {
 		return result.toString();
 	}
 	
-	public static Map<String, String> findUrlsByElements(Elements urls) {
-		Map<String, String> urlMap = new HashMap<>();
+	public static List<HtmlDto> findUrlsByElements(Elements urls) {
+		List<HtmlDto> htmlDtos = new ArrayList<>();
 		for(Element item:urls) {
-			urlMap.put(item.attr("abs:href"), item.text());
+			HtmlDto htmlDto = new HtmlDto();
+			htmlDto.setTitle(item.text());
+			htmlDto.setMainUrl(item.attr("abs:href"));
+			htmlDtos.add(htmlDto);
 		}
-		return urlMap;
+		return htmlDtos;
 	}
 	
-	public static void main(String[] args) throws IOException {
-		String aa = "//login.taobao.com/member/login.jhtml?f=top&amp;redirectURL=https%3A%2F%2Fwww.taobao.com%2F";
-		Pattern pt = Pattern.compile("^\\//");
-		System.out.println(pt.matcher(aa).find());
-		
-		Document doc = Jsoup.connect("http://www.lagou.com/").get();
-//		System.out.println(doc.toString());
-		Elements links = doc.select("a[href]");
-//		Map<String, String> urlMap = findUrlsByElements(links);
-        Elements media = doc.select("[src]");
-        Elements imports = doc.select("link[href]");
-		System.out.println(imports.attr("abs:href"));
-	}
 	
 }

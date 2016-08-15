@@ -9,11 +9,11 @@ import com.pjx.jpa.bean.HtmlDto;
 
 public interface HtmlDao extends CrudRepository<HtmlDto, Long> {
 
-	public long count();
+//	public long count();
 	
-	public void addHtmlDto(HtmlDto htmlDto);
+	public <S extends HtmlDto> S save(HtmlDto htmlDto);
 	
-	public void addHtmlDto(List<HtmlDto> HtmlDtolist);  
+//	public void saveHtmlDto(List<HtmlDto> HtmlDtolist);  
 	
-	public void deleteHtmlDto(HtmlDto htmlDto);
+//	public void delete(HtmlDto htmlDto);
 }
