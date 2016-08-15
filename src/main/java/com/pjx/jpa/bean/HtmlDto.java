@@ -23,6 +23,17 @@ public class HtmlDto {
 	@Column(nullable = false, name = "type", length = 256)
 	private String type;
 	
+	@Column(nullable = false, name = "main_url", length = 256)
+	private String mainUrl;
+	
+	public String getMainUrl() {
+		return mainUrl;
+	}
+
+	public void setMainUrl(String mainUrl) {
+		this.mainUrl = mainUrl;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -55,12 +66,4 @@ public class HtmlDto {
 		this.url = url;
 	}
 
-	public String getContent() {
-		return title;
-	}
-
-	public void setContent(String content) {
-		this.title = content;
-	}
-	
 }
