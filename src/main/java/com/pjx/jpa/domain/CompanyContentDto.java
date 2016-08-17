@@ -1,4 +1,4 @@
-package com.pjx.jpa.bean;
+package com.pjx.jpa.domain;
 
 import java.util.Date;
 

@@ -13,12 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.pjx.pattern.PatternUtil;
 
-@Service(value = "htmlDao")
 public class JsoupCrawler {
 
-	
-		
-	
 	
 	public Document handlePage(String url) throws IOException {
 		Document doc = Jsoup.connect(url).get();

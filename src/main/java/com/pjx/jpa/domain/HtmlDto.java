@@ -1,8 +1,7 @@
-package com.pjx.jpa.bean;
+package com.pjx.jpa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,10 +10,9 @@ import javax.persistence.Table;
 public class HtmlDto {
 
 	@Id
-	@GeneratedValue
-	private String id;
+	private Long id;
 	
-	@Column(nullable = false, name = "urls", length = 512)
+	@Column(nullable = false, name = "url", length = 512)
 	private String url;
 	
 	@Column(nullable = false, name = "title", length = 256)
@@ -50,11 +48,11 @@ public class HtmlDto {
 		this.type = type;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -64,6 +62,11 @@ public class HtmlDto {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	@Override
+	public String toString() {
+		return url + " + " + title;
 	}
 
 }
